@@ -7,7 +7,7 @@ sequelize
     console.log('Successfully connected to the database.'.green);
     process.exit();
   })
-  .catch((err) => {
-    console.error('An error occurred while connecting to the database: '.red, err);
+  .catch((error) => {
+    console.error('An error occurred while connecting to the database: '.red, error);
     process.exit();
   });

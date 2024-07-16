@@ -6,6 +6,6 @@ try {
   result = dotenv.config();
   if (result.error) throw result.error;
   console.log('The .env file has been loaded successfully.'.underline.bold.cyan);
-} catch (err) {
+} catch (error) {
   console.log('The .env file failed to load.'.underline.bold.red);
 }
