@@ -1,7 +1,7 @@
 require("../config/config");
 const colors = require("colors");
 const Admin = require("./tablas/Admin");
-const SuperAdmin = require("./tablas/SuperAdmin");
+const AdminType = require("./tablas/AdminType");
 const Teacher = require("./tablas/Teacher");
 const Student = require("./tablas/Student");
 const Subject = require("./tablas/Subject");
@@ -26,17 +26,19 @@ const drop = async () => {
   console.log("The Teacher table was uninstalled successfully.".magenta);
   await Admin.drop();
   console.log("The Admin table was uninstalled successfully.".magenta);
-  await SuperAdmin.drop();
-  console.log("The SuperAdmin table was uninstalled successfully.".magenta);
+  await Admin.drop();
+  console.log("The Admin table was uninstalled successfully.".magenta);
+  await AdminType.drop();
+  console.log("The AdminType table was uninstalled successfully.".magenta);
 };
 
 const sync = async () => {
   console.log("\nStep 2) Installing the database.".bold.blue);
 
+  await AdminType.sync();
+  console.log("The AdminType table was installed successfully.".magenta);
   await Admin.sync();
   console.log("The Admin table was installed successfully.".magenta);
-  await SuperAdmin.sync();
-  console.log("The SuperAdmin table was installed successfully.".magenta);
   await Teacher.sync();
   console.log("The Teacher table was installed successfully.".magenta);
   await Group.sync();

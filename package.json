@@ -7,6 +7,7 @@
     "test": "node ./server/config/test",
     "db:install": "node ./server/db/install",
     "db:data-fake": "node ./server/db/data-fake",
+    "db:catalog": "node ./server/db/catalog",
     "dev": "nodemon ./server/app",
     "start": "node ./server/app"
   },

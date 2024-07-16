@@ -4,6 +4,7 @@ const {
   validateEmail,
   validateDate,
   validateBool,
+  validateId,
 } = require(`${helperPath}/validate`);
 const { encrypt } = require(`${helperPath}/encrypt`);
 const dbPath = "../../db/tablas";
@@ -22,6 +23,7 @@ const admin = async (body) => {
     const insertedBy = validate(body.insertedBy, "insertedBy");
     const insertedDate = validateDate(body.insertedDate, "insertedDate");
     const isActive = validateBool(body.isActive, "isActive");
+    const idAdminType = validateId(body.idAdminType, "idAdminType");
 
     return Admin.create({
       firstName,
@@ -33,6 +35,7 @@ const admin = async (body) => {
       insertedBy,
       insertedDate,
       isActive,
+      idAdminType,
     })
       .then((res) => {
         if (!res)

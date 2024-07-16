@@ -1,27 +1,12 @@
 require("../config/config");
 const colors = require("colors");
 const Admin = require("./tablas/Admin");
-const SuperAdmin = require("./tablas/SuperAdmin");
 const Teacher = require("./tablas/Teacher");
 const Student = require("./tablas/Student");
 const Subject = require("./tablas/Subject");
 const Grade = require("./tablas/Grade");
 const SchoolCycle = require("./tablas/SchoolCycle");
 const Group = require("./tablas/Group");
-
-const dataSuperAdmin = async () => {
-  await SuperAdmin.create({
-    firstName: "John",
-    lastName: "Doe",
-    secondLastName: "Smith",
-    email: "john.doe@example.com",
-    username: "johndoe",
-    password: "password",
-    insertedBy: "System",
-    insertedDate: new Date(),
-  });
-  console.log("SuperAdmin data inserted successfully.".magenta);
-};
 
 const dataAdmin = async () => {
   await Admin.create({
@@ -34,6 +19,7 @@ const dataAdmin = async () => {
     insertedBy: "System",
     insertedDate: new Date(),
     isActive: true,
+    idAdminType: 1,
   });
   console.log("Admin data inserted successfully.".magenta);
 };
@@ -115,7 +101,6 @@ const dataGrade = async () => {
 };
 
 const exec = async () => {
-  await dataSuperAdmin();
   await dataAdmin();
   await dataTeacher();
   await dataSchoolCycle();

@@ -41,6 +41,8 @@ const admin = async (body) => {
           );
         if (body.isActive)
           dataUpdate.isActive = validateBool(body.isActive, "isActive");
+        if (body.idAdminType)
+          dataUpdate.idAdminType = validateId(body.idAdminType, "idAdminType");
 
         return Admin.update(dataUpdate, { where: { idAdmin } });
       })

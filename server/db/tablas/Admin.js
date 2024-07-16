@@ -1,5 +1,6 @@
-const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../../config/sequelize.conf');
+const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../../config/sequelize.conf");
+const AdminType = require("./AdminType"); // Importar el modelo AdminType
 
 class Admin extends Model {}
 
@@ -52,13 +53,23 @@ Admin.init(
       allowNull: false,
       defaultValue: true,
     },
+    idAdminType: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: AdminType,
+        key: "idAdminType",
+      },
+    },
   },
   {
     sequelize,
-    modelName: 'Admin',
-    tableName: 'admin',
+    modelName: "Admin",
+    tableName: "admin",
     timestamps: false,
   }
 );
+
+Admin.belongsTo(AdminType, { foreignKey: "idAdminType" });
 
 module.exports = Admin;

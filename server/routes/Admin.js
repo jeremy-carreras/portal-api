@@ -5,7 +5,7 @@ const getUser = require("../controller/Admin/getUser");
 const addAdmin = require("../controller/Admin/addUser");
 const updateAdmin = require("../controller/Admin/updateUser");
 
-app.get(`/Admin/users`, async (req, res) => {
+app.get(`/admin/users`, async (req, res) => {
   try {
     const data = await getUsers(req.body);
     res.status(200).json(data);
@@ -15,7 +15,7 @@ app.get(`/Admin/users`, async (req, res) => {
   }
 });
 
-app.get(`/Admin/user`, async (req, res) => {
+app.get(`/admin/user`, async (req, res) => {
   try {
     const data = await getUser(req.query);
     res.status(200).json(data);
@@ -25,7 +25,7 @@ app.get(`/Admin/user`, async (req, res) => {
   }
 });
 
-app.post(`/Admin/user`, async (req, res) => {
+app.post(`/admin/user`, async (req, res) => {
   try {
     const data = await addAdmin(req.body);
     res.status(200).json(data);
@@ -35,7 +35,7 @@ app.post(`/Admin/user`, async (req, res) => {
   }
 });
 
-app.put(`/Admin/user`, async (req, res) => {
+app.put(`/admin/user`, async (req, res) => {
   try {
     const data = await updateAdmin(req.body);
     res.status(200).json(data);

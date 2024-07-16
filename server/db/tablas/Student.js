@@ -70,7 +70,6 @@ Student.init(
   }
 );
 
-// Definir la relación entre Student y Group
 Student.belongsTo(Group, { foreignKey: 'idGroup' });
 
 module.exports = Student;
